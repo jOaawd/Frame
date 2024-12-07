@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrameViewer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: black;
+        }
+
+        h1 {
+            font-family: 'Josefin Sans', sans-serif;
+            color: white;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            background-color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 20px 0;
+        }
+
+        input[type="text"] {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            width: 50%;
+            max-width: 500px;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            border: none;
+        }
+
+        center h4 {
+            color: white;
+        }
+
+        center p {
+            color: darkblue;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>IframePass</h1>
+    <center>
+        <h4>Most of the sites are not supported. Contact me for any issues, fmodeteam@gmail.com</h4>
+        <b><p>©FMODE Team</p></b>
+    </center>
+    
+    <div style="text-align:center;">
+        <input type="text" id="url" name="url" placeholder="Enter URL">
+        <button onclick="generateIframe()">View Site</button>
+    </div>
+
+    <script>
+        function generateIframe() {
+            var url = document.getElementById('url').value;
+            if (url) {
+                var iframe = document.createElement('iframe');
+                iframe.src = url;
+                document.body.appendChild(iframe);
+            } else {
+                alert("Please enter a valid URL.");
+            }
+        }
+
+        document.getElementById('url').addEventListener('keyup', function(event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                generateIframe();
+            }
+        });
+    </script>
+</body>
+</html>
